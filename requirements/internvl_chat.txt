@@ -1,5 +1,5 @@
 accelerate<1
-bitsandbytes==0.42.0
+bitsandbytes>=0.42.0
 decord
 deepspeed>=0.13.5
 einops==0.6.1
@@ -20,8 +20,10 @@ tensorboardX
 termcolor
 timm==0.9.12
 tokenizers==0.15.1
-torch>=2
+torch==2.7.0
 torchvision>=0.15
 tqdm
 transformers==4.37.2
 yacs
+wheel
+datasets

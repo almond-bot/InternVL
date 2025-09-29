@@ -10,6 +10,7 @@ export PYTHONPATH="${PYTHONPATH}:$(pwd)"
 export MASTER_PORT=34229
 export TF_CPP_MIN_LOG_LEVEL=3
 export LAUNCHER=pytorch
+export LD_LIBRARY_PATH="/usr/lib/x86_64-linux-gnu:${LD_LIBRARY_PATH}"
 
 OUTPUT_DIR='work_dirs/internvl_chat_v2_5/internvl2_5_8b_dynamic_res_2nd_finetune_lora'
 
@@ -29,11 +30,11 @@ torchrun \
   --nproc_per_node=${GPUS} \
   --master_port=${MASTER_PORT} \
   internvl/train/internvl_chat_finetune.py \
-  --model_name_or_path "OpenGVLab/InternVL2_5-8B" \
+  --model_name_or_path "./pretrained/InternVL2_5-8B" \
   --conv_style "internvl2_5" \
   --use_fast_tokenizer False \
   --output_dir ${OUTPUT_DIR} \
-  --meta_path "./shell/data/internvl_1_2_finetune_custom.json" \
+  --meta_path "./shell/data/human_zed_in_bowl.json" \
   --overwrite_output_dir True \
   --force_image_size 448 \
   --max_dynamic_patch 6 \
@@ -41,7 +42,7 @@ torchrun \
   --drop_path_rate 0.0 \
   --freeze_llm True \
   --freeze_mlp True \
-  --freeze_backbone True \
+  --freeze_backbone False \
   --use_llm_lora 16 \
   --vision_select_layer -1 \
   --dataloader_num_workers 4 \
