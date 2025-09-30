@@ -7,19 +7,50 @@ name = "internvl_chat"
 version = "2.0.0"
 description = "Scaling up Vision Foundation Models and Aligning for Generic Visual-Linguistic Tasks."
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: Apache Software License",
 ]
 dependencies = [
-    "torch>=2", "torchvision>=0.15",
-    "transformers==4.37.2", "tokenizers==0.15.1", "sentencepiece==0.1.99", "shortuuid",
-    "accelerate", "peft>=0.4.0", "bitsandbytes==0.41.0",
-    "pydantic", "markdown2[all]", "numpy", "scikit-learn>=1.2.2",
-    "gradio==3.35.2", "gradio_client==0.2.9",
-    "requests", "httpx==0.24.0", "uvicorn", "fastapi",
-    "deepspeed==0.13.5", "einops", "einops-exts", "timm==0.9.12",
+    "torch==2.7.0",
+    "torchvision>=0.15",
+    "transformers==4.37.2",
+    "tokenizers==0.15.1",
+    "sentencepiece==0.1.99",
+    "shortuuid",
+    "accelerate<1",
+    "peft==0.10.0",
+    "bitsandbytes>=0.42.0",
+    "deepspeed>=0.13.5",
+    "einops==0.6.1",
+    "einops-exts==0.0.4",
+    "timm==0.9.12",
+    "numpy==1.26.4",
+    "scikit-learn>=1.2.2",
+    "decord",
+    "huggingface_hub",
+    "imageio",
+    "opencv-python",
+    "orjson",
+    "pycocoevalcap",
+    "pyyaml",
+    "scipy",
+    "tensorboardX",
+    "termcolor",
+    "tqdm",
+    "yacs",
+    "wheel",
+    "datasets",
+    "flash-attn",
+    "pydantic",
+    "markdown2[all]",
+    "gradio==3.35.2",
+    "gradio_client==0.2.9",
+    "requests",
+    "httpx==0.24.0",
+    "uvicorn",
+    "fastapi",
 ]
 
 [project.urls]
@@ -31,3 +62,16 @@ exclude = ["data*", "benchmark*", "docs", "dist*", "playground*", "scripts*", "s
 
 [tool.wheel]
 exclude = ["data*", "benchmark*", "docs", "dist*", "playground*", "scripts*", "shell*"]
+
+# [tool.uv.sources]
+# torch = { index = "pytorch" }
+# torchvision = { index = "pytorch" }
+# flash-attn = { path = "/home/almond/code/wheels/flash_attn-2.7.4.post1-cp310-cp310-manylinux_2_17_x86_64.whl" }
+
+# [[tool.uv.index]]
+# name = "pytorch"
+# url = "https://download.pytorch.org/whl/cu128"
+# explicit = true
+
+[tool.uv]
+no-build-isolation-package = ["flash-attn"]
