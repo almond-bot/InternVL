@@ -82,4 +82,10 @@ torchrun \
   --report_to "tensorboard" \
   2>&1 | tee -a "${OUTPUT_DIR}/training_log.txt"
 
+python -m tools.merge_lora ${OUTPUT_DIR} ${OUTPUT_DIR}_merge
+cp pretrained/InternVL2_5-8B/*.py ${OUTPUT_DIR}_merge/
+cp pretrained/InternVL2_5-8B/config.json ${OUTPUT_DIR}_merge/
+
+hf upload almond-bot/InternVL2_5-8B_zed_in_bowl ${OUTPUT_DIR}_merge/
+
 curl -X POST -H 'Content-type: application/json' --data '{"text":"AI training done!"}' $SLACK_ENG_OPERATIONS
