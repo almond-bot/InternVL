@@ -1,5 +1,12 @@
 set -x
 
+# Load environment variables from .env file
+if [ -f .env ]; then
+  set -a
+  source .env
+  set +a
+fi
+
 GPUS=${GPUS:-2}
 BATCH_SIZE=${BATCH_SIZE:-16}
 PER_DEVICE_BATCH_SIZE=${PER_DEVICE_BATCH_SIZE:-4}
@@ -74,4 +81,4 @@ torchrun \
   --report_to "tensorboard" \
   2>&1 | tee -a "${OUTPUT_DIR}/training_log.txt"
 
-curl -X POST -H 'Content-type: application/json' --data '{"text":"AI training done!"}' https://hooks.slack.com/services/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
+curl -X POST -H 'Content-type: application/json' --data '{"text":"AI training done!"}' $SLACK_ENG_OPERATIONS
