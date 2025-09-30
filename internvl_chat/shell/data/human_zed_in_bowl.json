@@ -1,7 +1,7 @@
 {
     "human_zed_in_bowl": {
-      "root": "/home/ubuntu//human_zed_in_bowl",
-      "annotation": "/home/ubuntu//human_zed_in_bowl/annotations.jsonl",
+      "root": "/home/ubuntu/human_zed_in_bowl",
+      "annotation": "/home/ubuntu/human_zed_in_bowl/annotations.jsonl",
       "data_augment": false,
       "max_dynamic_patch": 12,
       "repeat_time": 1,
