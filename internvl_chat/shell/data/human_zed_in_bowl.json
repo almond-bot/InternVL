@@ -1,10 +1,10 @@
 {
     "human_zed_in_bowl": {
-      "root": "/home/ubuntu/zed_in_bowl",
-      "annotation": "/home/ubuntu/zed_in_bowl/annotations.jsonl",
+      "root": "/home/almond/code/rfm/output/human_zed_in_bowl",
+      "annotation": "/home/almond/code/rfm/output/human_zed_in_bowlannotations.jsonl",
       "data_augment": false,
       "max_dynamic_patch": 12,
       "repeat_time": 1,
-      "length": "1201"
+      "length": "25590"
     }
 }
