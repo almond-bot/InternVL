@@ -73,3 +73,5 @@ torchrun \
   --deepspeed "zero_stage1_config.json" \
   --report_to "tensorboard" \
   2>&1 | tee -a "${OUTPUT_DIR}/training_log.txt"
+
+curl -X POST -H 'Content-type: application/json' --data '{"text":"AI training done!"}' https://hooks.slack.com/services/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
