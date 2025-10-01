@@ -5,7 +5,7 @@ source ~/.bashrc
 uv sync
 source .venv/bin/activate
 
-if ! hf whoami > /dev/null 2>&1; then
+if ! hf auth whoami > /dev/null 2>&1; then
   hf auth login
 fi
 
