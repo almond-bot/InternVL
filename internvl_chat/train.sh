@@ -5,9 +5,13 @@ source ~/.bashrc
 uv sync
 source .venv/bin/activate
 
-hf auth login
+if ! hf whoami > /dev/null 2>&1; then
+  hf auth login
+fi
 
-mkdir pretrained
+if [ ! -d "pretrained" ]; then
+  mkdir "pretrained"
+fi
 hf download OpenGVLab/InternVL2_5-8B --local-dir pretrained/InternVL2_5-8B
 hf download almond-bot/human_zed_in_bowl --local-dir ~/human_zed_in_bowl --repo-type dataset
 
