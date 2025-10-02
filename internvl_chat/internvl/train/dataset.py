@@ -829,6 +829,8 @@ def find_closest_aspect_ratio(aspect_ratio, target_ratios, width, height, image_
 
 def dynamic_preprocess(image, min_num=1, max_num=6, image_size=448, use_thumbnail=False):
     orig_width, orig_height = image.size
+    if orig_width == orig_height == image_size:
+        return [image]
     aspect_ratio = orig_width / orig_height
 
     # calculate the existing image aspect ratio
