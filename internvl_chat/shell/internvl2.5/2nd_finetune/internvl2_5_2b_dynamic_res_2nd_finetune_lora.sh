@@ -24,7 +24,7 @@ export CUDA_HOME=/usr/local/cuda
 export PATH="${CUDA_HOME}/bin:${PATH}"
 export LD_LIBRARY_PATH="${CUDA_HOME}/lib64:/usr/lib/x86_64-linux-gnu:${LD_LIBRARY_PATH}"
 
-OUTPUT_DIR='work_dirs/internvl_chat_v2_5/internvl2_5_8b_dynamic_res_2nd_finetune_lora'
+OUTPUT_DIR='work_dirs/internvl_chat_v2_5/internvl2_5_2b_dynamic_res_2nd_finetune_lora'
 
 if [ ! -d "$OUTPUT_DIR" ]; then
   mkdir -p "$OUTPUT_DIR"
