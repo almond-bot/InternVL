@@ -847,7 +847,7 @@ def dynamic_preprocess(image, min_num=1, max_num=6, image_size=448, use_thumbnai
     blocks = target_aspect_ratio[0] * target_aspect_ratio[1]
 
     # resize the image
-    resized_img = image.resize((target_width, target_height))
+    resized_img = image.resize((target_width, target_height), Image.Resampling.LANCZOS)
     processed_images = []
     for i in range(blocks):
         box = (
@@ -861,6 +861,6 @@ def dynamic_preprocess(image, min_num=1, max_num=6, image_size=448, use_thumbnai
         processed_images.append(split_img)
     assert len(processed_images) == blocks
     if use_thumbnail and len(processed_images) != 1:
-        thumbnail_img = image.resize((image_size, image_size))
+        thumbnail_img = image.resize((image_size, image_size), Image.Resampling.LANCZOS)
         processed_images.append(thumbnail_img)
     return processed_images
