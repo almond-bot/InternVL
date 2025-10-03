@@ -63,15 +63,15 @@ exclude = ["data*", "benchmark*", "docs", "dist*", "playground*", "scripts*", "s
 [tool.wheel]
 exclude = ["data*", "benchmark*", "docs", "dist*", "playground*", "scripts*", "shell*"]
 
-# [tool.uv.sources]
-# torch = { index = "pytorch" }
-# torchvision = { index = "pytorch" }
-# flash-attn = { path = "/home/almond/code/wheels/flash_attn-2.7.4.post1-cp310-cp310-manylinux_2_17_x86_64.whl" }
+[tool.uv.sources]
+torch = { index = "pytorch" }
+torchvision = { index = "pytorch" }
+flash-attn = { path = "/home/almond/code/wheels/flash_attn-2.7.4.post1-cp310-cp310-manylinux_2_17_x86_64.whl" }
 
-# [[tool.uv.index]]
-# name = "pytorch"
-# url = "https://download.pytorch.org/whl/cu128"
-# explicit = true
+[[tool.uv.index]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
 
-[tool.uv]
-no-build-isolation-package = ["flash-attn"]
+# [tool.uv]
+# no-build-isolation-package = ["flash-attn"]

@@ -1,0 +1,10 @@
+{
+    "<name>": {
+      "root": "data/<name>/",
+      "annotation": "data/<name>/annotations.jsonl",
+      "data_augment": false,
+      "max_dynamic_patch": 12,
+      "repeat_time": 1,
+      "length": "<samples>"
+    }
+  }
