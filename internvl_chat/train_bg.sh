@@ -86,8 +86,14 @@ torchrun \
   --report_to "tensorboard" \
   2>&1 | tee -a "${OUTPUT_DIR}/training_log.txt"
 
+if [ "${PIPESTATUS[0]}" -ne 0 ]; then
+  curl -X POST -H 'Content-type: application/json' --data '{"text":"⚠️ AI training failed"}' $SLACK_ENG_OPERATIONS
+  exit 1
+fi
+
+
 python -m tools.merge_lora ${OUTPUT_DIR} ${OUTPUT_DIR}_merge
 cp pretrained/InternVL2_5-${PARAMS}B/*.py ${OUTPUT_DIR}_merge/
 cp pretrained/InternVL2_5-${PARAMS}B/config.json ${OUTPUT_DIR}_merge/
 
-curl -X POST -H 'Content-type: application/json' --data '{"text":"AI training done!"}' $SLACK_ENG_OPERATIONS
+curl -X POST -H 'Content-type: application/json' --data '{"text":"🏆 AI training finished"}' $SLACK_ENG_OPERATIONS
